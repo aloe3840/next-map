@@ -7,8 +7,14 @@ import Roadmap from "./roadmap";
 import axios from "axios";
 
 // npm install react-kakao-maps-sdk
-const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_API_KEY}&libraries=services,clusterer&autoload=false`;
-const REST_API_KEY = process.env.NEXT_PUBLIC_REST_API_KEY
+const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=b4dbb01618c369d6fccddd1e90bb4dee&libraries=services,clusterer&autoload=false`;
+const KAKAO_API_KEY = 'b4dbb01618c369d6fccddd1e90bb4dee'
+const REST_API_KEY = '7ad5f2c57fe405b9a655856ec7ff4c9d'
+
+// const KAKAO_SDK_URL = process.env.KAKAO_SDK_URL
+// const KAKAO_API_KEY = process.env.KAKAO_API_KEY
+// const REST_API_KEY = process.env.REST_API_KE
+
 
 export default function KakaoMap() {
   const [position, setPosition] = useState({
@@ -227,7 +233,7 @@ export default function KakaoMap() {
       </div>
 
       <div className="map-container">
-      <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
+      <Script src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_API_KEY}&libraries=services,clusterer&autoload=false`} strategy="beforeInteractive" />
         {loaded && (
           <div className="map-wrapper">
             <Map center={position} className="map" level={5} draggable={true} onCreate={setMap}>
